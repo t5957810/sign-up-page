@@ -95,11 +95,24 @@ $fontInterstate: Interstate;
         left: 10px;
     }
 
-    .agree, .passwordField {
+    .agree {
+        label {
+            input[type=checkbox] {
+                &:checked+span:before {
+                    width: 17px !important;
+                }
+            }
+        }
+    }
+
+
+    .agree,
+    .passwordField {
         padding-left: 10px;
     }
+
     .passwordField {
-        width: calc(100% - 30px);  
+        width: calc(100% - 30px);
     }
 
     .label {
@@ -121,6 +134,7 @@ $fontInterstate: Interstate;
     .button {
         width: 190px;
     }
+
     .box {
         border-radius: $defaultValue;
         width: 610px;
@@ -132,7 +146,7 @@ $fontInterstate: Interstate;
     }
 
     .passwordField {
-        width: calc(100% - 10px);    
+        width: calc(100% - 10px);
     }
 
     .back {
@@ -231,10 +245,41 @@ $fontInterstate: Interstate;
 .agree {
     margin-top: 34px;
     margin-bottom: 23px;
+    position: relative;
+
+    label {
+        display: flex;
+
+        input[type=checkbox] {
+            display: none;
+
+            &:checked+span:before {
+                height: 18px;
+                width: 16px;
+                background-color: $white;
+                content: '\2713';
+                position: absolute;
+                color: $colorBlue;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        span {
+            cursor: pointer;
+            height: 18px;
+            width: 28px;
+            border: 1px solid $colorGray;
+            background-color: $colorGray;
+            position: relative;
+        }
+
+    }
 }
 
 .passwordField {
-    position:relative;  
+    position: relative;
+
     .icon {
         cursor: pointer;
         position: absolute;
@@ -270,7 +315,6 @@ $fontInterstate: Interstate;
     font-size: 13px;
     line-height: 15.6px;
     padding-left: 10px;
-    position: absolute;
     color: $colorDarkGray;
 }
 
@@ -298,6 +342,11 @@ $fontInterstate: Interstate;
     .logo {
         padding-right: 19px;
         font-size: 20px;
+        color: $colorBlue;
+
+        &.white {
+            color: $white;
+        }
     }
 
 }
@@ -332,5 +381,9 @@ $fontInterstate: Interstate;
 
     &:hover {
         font-weight: bold;
+    }
+
+    &:before {
+        content: '\2190';
     }
 }

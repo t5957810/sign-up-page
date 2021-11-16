@@ -6,16 +6,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FloatDirective } from './model/float.directive';
 import { RegisterComponent } from './register/register.component';
+import { IconColorChangeDirective } from './model/icon-color-change.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    FloatDirective
+    FloatDirective,
+    IconColorChangeDirective
   ],
   exports: [
-    FloatDirective
+    FloatDirective,
+    IconColorChangeDirective
   ],
   imports: [
     CommonModule,
