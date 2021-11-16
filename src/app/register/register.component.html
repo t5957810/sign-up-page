@@ -1,0 +1,69 @@
+<div class="flex">
+    <div class="box">
+        <div class="field">
+            <a class="back">← Back</a>
+        </div>
+        <form [formGroup]="form" class="form-content">
+            <div>
+                <h4 class="title-description">Start From free</h4>
+            </div>
+            <div>
+                <h3 class="title">Create an acount</h3>
+            </div>
+            <div class="field">
+                <div class="half">
+                    <button class="button google" type="button">
+                    <i class="fa fa-google logo"></i>Sign up with Google
+                </button>
+                </div>
+                <div class="half">
+                    <button class="button facebook" type="button"><i class="fa fa-facebook logo"></i>Sign up with
+                    Facebook</button>
+                </div>
+            </div>
+            <div class="description field">
+                <span>Or use your email for registration</span>
+                <div class="line"></div>
+            </div>
+            <div class="field">
+                <div class="half" appFloat>
+                    <span class="label hide">First Name</span>
+                    <input placeholder="First Name" class="text halfInput" formControlName="firstName" />
+                </div>
+                <div class="half" appFloat>
+                    <span class="label hide">Last Name</span>
+                    <input placeholder="Last Name" class="text halfInput" formControlName="lastName" />
+                </div>
+            </div>
+            <div class="field" appFloat>
+                <span class="label hide">E-mail</span>
+                <input class="text email" formControlName="email" placeholder="E-mail" type="email" />
+            </div>
+            <div class="passwordField" appFloat>
+                <span class="label hide">Password</span>
+                <input placeholder="Password" class="text password" formControlName="password" type="password" />
+
+                <span *ngIf="isShowPassword" class="passwordVal">{{ this.form.get('password').value }}</span>
+                <i class="fa fa-eye icon" [ngClass]="{'colorBlue': isShowPassword}" (click)="showPassword()"></i>
+                <span class="warn" margin-right-20 *ngIf="this.form.get('password').value">
+                    <i class="fa fa-check-circle warn-circle" 
+                    [ngClass]="{'active': !this.form.get('password').errors?.minlength}"></i>8 Characters min.
+                </span>
+                <span class="warnSecond" *ngIf="this.form.get('password').value">
+                    <i class="fa fa-check-circle warn-circle" 
+                    [ngClass]="{'active': !this.form.get('password').errors?.oneNumberError}"></i>One Number.</span>
+            </div>
+            <div class="agree">
+                <input type="checkbox" class="check" formControlName="isAgree" />
+                <label class="term">By creating account, you agree to accept our Privacy Policy, Terms of Service and
+                    Notification settings.</label>
+            </div>
+            <div class="field">
+                <button class="button primary" type="button" (click)="create()">Create an Free Account!</button>
+            </div>
+            <div class="bottom-description">
+                <p>Already have an account? <a class="link">Log in</a></p>
+            </div>
+        </form>
+    </div>
+</div>

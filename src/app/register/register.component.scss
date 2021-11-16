@@ -1,0 +1,336 @@
+$defaultValue: 16px;
+$defaultMarginSize: 20px;
+$fullWidth: 100%;
+$white: #fff;
+$colorBlack: #000;
+$colorBlue: #3c72ff;
+$colorGray: #ABABAB;
+$colorDarkGray: #757575;
+$colorGreen: #01ff73;
+$fontInterstate: Interstate;
+
+[margin-right-20] {
+    margin-right: $defaultMarginSize;
+}
+
+
+%fullWidth {
+    width: $fullWidth;
+}
+
+%link {
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 2px solid $colorBlue;
+    }
+}
+
+%font-shared {
+    font-family: $fontInterstate;
+    font-weight: 400;
+    font-style: normal;
+}
+
+%shape-shared {
+    height: 55px;
+    border-radius: 5px;
+}
+
+%input-shared {
+    @extend %shape-shared;
+    width: $fullWidth;
+}
+
+%warn {
+    @extend %font-shared;
+    font-size: 10px;
+    top: 75px;
+    position: absolute;
+}
+
+.label {
+    position: absolute;
+    @extend %font-shared;
+    color: $colorDarkGray;
+    font-size: 10px;
+    top: 15px;
+
+    &.hide {
+        display: none;
+    }
+}
+
+.warn {
+    @extend %warn;
+    left: 11px;
+}
+
+.warnSecond {
+    @extend %warn;
+    left: 142px;
+}
+
+.warn-circle {
+    margin-right: 7px;
+    color: $colorGray;
+
+    &.active {
+        color: $colorGreen;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .box {
+        margin: 0px;
+        border-radius: 0px;
+        width: 100%;
+    }
+
+    .button {
+        width: $fullWidth;
+    }
+
+    .back {
+        left: 10px;
+    }
+
+    .agree, .passwordField {
+        padding-left: 10px;
+    }
+    .passwordField {
+        width: calc(100% - 30px);  
+    }
+
+    .label {
+        left: 20px;
+    }
+
+    .field {
+        padding: 0 10px 0 10px;
+    }
+
+    .form-content {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 611px) {
+    .button {
+        width: 190px;
+    }
+    .box {
+        border-radius: $defaultValue;
+        width: 610px;
+        margin: 60px 0px 60px 0px;
+    }
+
+    .label {
+        left: 10px;
+    }
+
+    .passwordField {
+        width: calc(100% - 10px);    
+    }
+
+    .back {
+        left: 31px;
+    }
+
+    .form-content {
+        left: 105px;
+        right: 105px;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    background: $white;
+    height: 640px;
+}
+
+.form-content {
+    position: absolute;
+    top: 75px;
+}
+
+.title-description {
+    @extend %font-shared;
+    font-size: 18px;
+    line-height: 21.6px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+.title {
+    @extend %font-shared;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: $defaultValue;
+    padding-left: 10px;
+}
+
+.description {
+    @extend %font-shared;
+    margin-top: 29px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.line {
+    display: inline-block;
+    border-bottom: 1px solid;
+    width: $fullWidth;
+    margin-left: 7px;
+    margin-bottom: 8px;
+}
+
+.field {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    @extend %input-shared;
+    @extend %font-shared;
+    background: #F1F5FF;
+    border: 0px;
+    font-size: 14px;
+    line-height: 16.8px;
+    margin-top: 12px;
+    padding-left: 10px;
+}
+
+.halfInput {
+    width: calc(100% - 10px);
+}
+
+.half {
+    position: relative;
+    width: calc(50% - 10px);
+}
+
+.field>.email {
+    width: $fullWidth;
+}
+
+.field>.password {
+    width: $fullWidth - 11;
+}
+
+.agree {
+    margin-top: 34px;
+    margin-bottom: 23px;
+}
+
+.passwordField {
+    position:relative;  
+    .icon {
+        cursor: pointer;
+        position: absolute;
+        font-size: 16px;
+        top: 30.74px;
+        right: 21.74px;
+        color: $colorGray;
+
+        &.colorBlue {
+            color: $colorBlue;
+        }
+    }
+}
+
+.passwordVal {
+    position: absolute;
+    @extend %font-shared;
+    font-size: 10px;
+    top: 45px;
+    left: 11px;
+}
+
+.check {
+    width: 18px;
+    height: 18px;
+    background: $colorGray;
+    border-radius: 5px;
+    color: $colorDarkGray;
+}
+
+.term {
+    @extend %font-shared;
+    font-size: 13px;
+    line-height: 15.6px;
+    padding-left: 10px;
+    position: absolute;
+    color: $colorDarkGray;
+}
+
+.button {
+    @extend %shape-shared;
+    background-color: $white;
+    border: 1px solid $colorBlue;
+
+    &:active,
+    &:hover {
+        background-color: $colorBlue;
+        color: $white;
+        box-shadow: 0px 6px 15px rgba(60, 113, 255, 0.4);
+    }
+
+    &.primary {
+        @extend %font-shared;
+        @extend %fullWidth;
+        background-color: $colorBlue;
+        color: $white;
+        line-height: 17px;
+        font-size: 14px;
+    }
+
+    .logo {
+        padding-right: 19px;
+        font-size: 20px;
+    }
+
+}
+
+.bottom-description {
+    @extend %font-shared;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 12px;
+    text-align: center;
+    color: $colorDarkGray;
+}
+
+@mixin link {
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 2px solid $colorBlue;
+    }
+}
+
+.link {
+    @extend %link;
+    color: $colorBlue;
+}
+
+.back {
+    position: absolute;
+    top: 32px;
+    font-size: 14px;
+    @extend %link;
+
+    &:hover {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,18 @@
+$backgroundColor: #f1f5ff;
+
+.wrapper {
+    background-color: $backgroundColor;
+    min-height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
